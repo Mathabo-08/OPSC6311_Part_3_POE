@@ -2,6 +2,7 @@ package com.example.zenith
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 
@@ -23,8 +24,7 @@ class Goals : AppCompatActivity() {
         }
 
         budgetButton.setOnClickListener {
-            val intent = Intent(this, MonthlyBudget::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, MonthlyBudget::class.java))
         }
 
         expensesButton.setOnClickListener {

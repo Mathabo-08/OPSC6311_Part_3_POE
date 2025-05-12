@@ -2,8 +2,11 @@ package com.example.zenith
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -15,6 +18,17 @@ class QuickExpenses : AppCompatActivity() {
     private lateinit var expensesButton: LinearLayout
     private lateinit var goalsButton: LinearLayout
     private lateinit var educationButton: LinearLayout
+    private lateinit var dropDown: ImageView
+    private lateinit var categoryTextView: TextView
+
+    // List of expense categories
+    private val categories = listOf(
+        "Transportaion",
+        "Food",
+        "Housing",
+        "Clothing",
+        "None"
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +36,7 @@ class QuickExpenses : AppCompatActivity() {
 
         initializeViews()
         setupNavigationButtons()
+        setupCategoryDropdown()
         updateActiveButtonState()
     }
 
@@ -31,6 +46,45 @@ class QuickExpenses : AppCompatActivity() {
         expensesButton = findViewById(R.id.expensesButton)
         goalsButton = findViewById(R.id.goalsButton)
         educationButton = findViewById(R.id.educationButton)
+        dropDown = findViewById(R.id.drop_down_cate)
+        categoryTextView = findViewById(R.id.categoryTextView)
+    }
+
+    private fun setupCategoryDropdown() {
+        dropDown.setOnClickListener {
+            showCategoryPopupMenu(it)
+        }
+
+        // Also make the whole category input layout clickable
+        val categoryInputLayout = findViewById<LinearLayout>(R.id.categoryInputLayout)
+        categoryInputLayout.setOnClickListener {
+            showCategoryPopupMenu(it)
+        }
+    }
+
+    private fun showCategoryPopupMenu(anchorView: View) {
+        val popup = PopupMenu(this, anchorView)
+
+        // Add all categories to the menu
+        categories.forEachIndexed { index, category ->
+            popup.menu.add(0, index, 0, category)
+        }
+
+        popup.setOnMenuItemClickListener { item: MenuItem ->
+            if (categories[item.itemId] == "None") {
+                // Reset to default hint text
+                categoryTextView.text = ""
+                categoryTextView.hint = "Select Category"
+                categoryTextView.setTextColor(ContextCompat.getColor(this, android.R.color.darker_gray))
+            } else {
+                // Update with selected category
+                categoryTextView.text = categories[item.itemId]
+                categoryTextView.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+            }
+            true
+        }
+
+        popup.show()
     }
 
     private fun setupNavigationButtons() {

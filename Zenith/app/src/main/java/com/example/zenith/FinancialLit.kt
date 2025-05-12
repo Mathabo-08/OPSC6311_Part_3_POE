@@ -64,21 +64,19 @@ class FinancialLit : AppCompatActivity() {
     }
 
     private fun updateActiveButtonState() {
-        // Reset all buttons to inactive state
         val inactiveColor = ContextCompat.getColor(this, R.color.white)
         val activeColor = ContextCompat.getColor(this, R.color.YELLOW)
 
-        homeButton.findViewById<TextView>(R.id.homeButton).setTextColor(inactiveColor)
-        budgetButton.findViewById<TextView>(R.id.budgetButton).setTextColor(inactiveColor)
-        expensesButton.findViewById<TextView>(R.id.expensesButton).setTextColor(inactiveColor)
-        goalsButton.findViewById<TextView>(R.id.goalsButton).setTextColor(inactiveColor)
+        findViewById<TextView>(R.id.nav_home_text).setTextColor(inactiveColor)
+        findViewById<TextView>(R.id.nav_budget_text).setTextColor(inactiveColor)
+        findViewById<TextView>(R.id.nav_expenses_text).setTextColor(inactiveColor)
+        findViewById<TextView>(R.id.nav_goals_text).setTextColor(inactiveColor)
 
-        // Set current button as active
         when (this::class.java.simpleName) {
-            "Home" -> homeButton.findViewById<TextView>(R.id.homeButton).setTextColor(activeColor)
-            "MonthlyBudget" -> budgetButton.findViewById<TextView>(R.id.budgetButton).setTextColor(activeColor)
-            "Reports" -> expensesButton.findViewById<TextView>(R.id.expensesButton).setTextColor(activeColor)
-            "Goals" -> goalsButton.findViewById<TextView>(R.id.goalsButton).setTextColor(activeColor)
+            "Home" -> findViewById<TextView>(R.id.nav_home_text).setTextColor(activeColor)
+            "MonthlyBudget" -> findViewById<TextView>(R.id.nav_budget_text).setTextColor(activeColor)
+            "Reports" -> findViewById<TextView>(R.id.nav_expenses_text).setTextColor(activeColor)
+            "Goals" -> findViewById<TextView>(R.id.nav_goals_text).setTextColor(activeColor)
         }
     }
 
