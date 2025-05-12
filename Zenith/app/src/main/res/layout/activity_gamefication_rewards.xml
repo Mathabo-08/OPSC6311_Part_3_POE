@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ScrollView as the root container with all necessary attributes -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#7B1FA2"
+    android:padding="16dp"
+    tools:context=".GameficationRewards">
+
+    <!-- Only one direct child of ScrollView - using a vertical LinearLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <!-- Header section with title and profile icons -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+<TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:text="Achievements"
+    android:textColor="#FDD835"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:fontFamily="sans-serif" />
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/notifButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="Notification"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_notifications" />
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Profile"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_placeholder" />
+</LinearLayout>
+</LinearLayout>
+
+    <!-- Grid layout for achievement cards -->
+<GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:columnCount="2"
+    android:rowCount="3">
+
+<!-- Gold Trophy Card -->
+<androidx.cardview.widget.CardView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#FDD835"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="Gold Trophy"
+            android:scaleType="fitCenter"
+            android:src="@drawable/gold_trophy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Gold Trophy"
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Achieve 1st Place"
+            android:textColor="#424242"
+            android:textSize="12sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+<!-- Silver Medal Card -->
+<androidx.cardview.widget.CardView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#FDD835"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="Silver Medal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/silver_medal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Silver Medal"
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Win 2nd Place"
+            android:textColor="#424242"
+            android:textSize="12sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+<!-- Bronze Medal Card -->
+<androidx.cardview.widget.CardView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#FDD835"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="Bronze Medal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bronze_medal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Bronze Medal"
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Secure 3rd Place"
+            android:textColor="#424242"
+            android:textSize="12sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+<!-- Quiz Master Card -->
+<androidx.cardview.widget.CardView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#FDD835"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="Quiz Master"
+            android:scaleType="fitCenter"
+            android:src="@drawable/quiz_master" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Quiz Master"
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Complete 10 Quizzes"
+            android:textColor="#424242"
+            android:textSize="12sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+<!-- Set Goals Card -->
+<androidx.cardview.widget.CardView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#FDD835"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="Set Goals"
+            android:scaleType="fitCenter"
+            android:src="@drawable/set_goals" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Set Goals"
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Help 5 Users"
+            android:textColor="#424242"
+            android:textSize="12sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+<!-- Money Saved Card -->
+<androidx.cardview.widget.CardView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#FDD835"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="Money Saved"
+            android:scaleType="fitCenter"
+            android:src="@drawable/money_saved" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Money Saved"
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Respond in 1 Min"
+            android:textColor="#424242"
+            android:textSize="12sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+</GridLayout>
+
+    <!-- Progress section -->
+<TextView
+android:id="@+id/levelTextView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="24dp"
+android:text="Level 2"
+android:textColor="#FDD835"
+android:textSize="16sp" />
+
+<ProgressBar
+android:id="@+id/progressBar"
+style="?android:attr/progressBarStyleHorizontal"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="8dp"
+android:progress="50"
+android:progressTint="#FDD835"
+android:scaleY="3" />
+
+<TextView
+android:id="@+id/progressTextView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="8dp"
+android:text="You are 50% on your way to the next badge"
+android:textColor="#FDD835"
+android:textSize="14sp" />
+
+    <!-- Tasks section -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:padding="16dp">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <CheckBox
+        android:id="@+id/collectBadgesCheckBox"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Collect 10 badges to earn the Collector badge."
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <CheckBox
+        android:id="@+id/shareTipCheckBox"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share a tip on the Community Board 5 times to earn the Helpful badge."
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+</LinearLayout>
+
+<!-- Challenges section -->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:fontFamily="sans-serif-medium"
+    android:text="New Challenge"
+    android:textColor="#FDD835"
+    android:textSize="18sp" />
+
+<TextView
+    android:id="@+id/newChallengeText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="Try the 5-day eco-friendly challenge!"
+    android:textColor="#FFFFFF"
+    android:textSize="16sp" />
+
+<TextView
+    android:id="@+id/newChallengeTime"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:text="2 hours ago"
+    android:textColor="#BDBDBD"
+    android:textSize="12sp" />
+
+<!-- Tip of the Week section -->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:fontFamily="sans-serif-medium"
+    android:text="Tip of the Week"
+    android:textColor="#FDD835"
+    android:textSize="18sp" />
+
+<TextView
+    android:id="@+id/tipOfWeekText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="Save water by reusing cooking liquid."
+    android:textColor="#FFFFFF"
+    android:textSize="16sp" />
+
+<TextView
+    android:id="@+id/tipOfWeekTime"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:text="5 minutes ago"
+    android:textColor="#BDBDBD"
+    android:textSize="12sp" />
+</LinearLayout>
+
+    <!-- Bottom Navigation (Fixed at bottom) -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="#6A0080"
+android:orientation="horizontal"
+android:paddingTop="8dp"
+android:paddingBottom="8dp">
+
+<LinearLayout
+    android:id="@+id/homeButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Home"
+        android:padding="8dp"
+        android:src="@drawable/ic_home" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textColor="#fecf69"
+        android:textSize="12sp" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/budgetButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="Budget"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_budget" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Budget"
+        android:textColor="#Fecf69"
+        android:textSize="12sp" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/expensesButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Expenses"
+        android:padding="8dp"
+        android:src="@drawable/ic_expenses" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expenses"
+        android:textColor="#fecf69"
+        android:textSize="12sp" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/goalsButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Goals"
+        android:padding="8dp"
+        android:src="@drawable/ic_goals" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Goals"
+        android:textColor="#fecf69"
+        android:textSize="12sp" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/educationButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Education"
+        android:padding="8dp"
+        android:src="@drawable/ic_education" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Education"
+        android:textColor="#fecf69"
+        android:textSize="12sp" />
+</LinearLayout>
+</LinearLayout>
+</LinearLayout>
+</ScrollView>

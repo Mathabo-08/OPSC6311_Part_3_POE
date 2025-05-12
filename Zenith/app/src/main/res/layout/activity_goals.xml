@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7B1FA2"
+    tools:context=".Goals">
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavigationBar"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:text="Goals Dashboard"
+                    android:textColor="#FDD835"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/notifButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Notifications"
+                        android:src="@drawable/ic_notifications"
+                        android:scaleType="centerInside" />
+
+                    <ImageView
+                        android:id="@+id/profileImage"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="Profile Image"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/profile_placeholder" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Monthly Budget Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Monthly Budget"
+                android:textColor="#FDD835"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Income & Expense Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonTotalIncome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#A020F0"
+                    android:insetTop="6dp"
+                    android:insetBottom="6dp"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:text="Total Income"
+                    android:textAllCaps="false"
+                    android:textColor="#c1ff72"
+                    android:textSize="16sp"
+                    app:cornerRadius="8dp"
+                    app:iconTint="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/buttonTotalExpenses"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#A020F0"
+                    android:insetTop="6dp"
+                    android:insetBottom="6dp"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:text="Total Expenses"
+                    android:textAllCaps="false"
+                    android:textColor="#ff3131"
+                    android:textSize="16sp"
+                    app:cornerRadius="8dp"
+                    app:iconTint="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- Category Allocation Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Category Allocation"
+                android:textColor="#FDD835"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Slide to allocate your budget"
+                android:textColor="#fecf69"
+                android:textSize="14sp" />
+
+            <!-- Category Progress Bars (Housing, Utilities, Food) -->
+            <!-- Repeatable pattern of horizontal layout with label and progress bar -->
+            <!-- HOUSING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Housing"
+                    android:textColor="#fecf69"
+                    android:textSize="16sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarHousing"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:progress="70"
+                    android:progressTint="#FFD700"
+                    android:secondaryProgressTint="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- UTILITIES -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Utilities"
+                    android:textColor="#fecf69"
+                    android:textSize="16sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarUtilities"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:progress="40"
+                    android:progressTint="#FFD700"
+                    android:secondaryProgressTint="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- FOOD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Food"
+                    android:textColor="#fecf69"
+                    android:textSize="16sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarFood"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:progress="90"
+                    android:progressTint="#FFD700"
+                    android:secondaryProgressTint="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- Alert Preferences -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Alert Preferences"
+                android:textColor="#ff3131"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Notify me when I exceed my budget in a category"
+                android:textColor="#c1ff72"
+                android:textSize="14sp" />
+
+            <!-- Switches for category alerts -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Food"
+                    android:textColor="#c1ff72"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchFoodAlert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="64dp"
+                    android:minHeight="48dp"
+                    android:thumbTint="#FFFFFF"
+                    android:trackTint="#fecf69" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="Housing"
+                    android:textColor="#c1ff72"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchHousingAlert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="64dp"
+                    android:minHeight="48dp"
+                    android:thumbTint="#FFFFFF"
+                    android:trackTint="#fecf69" />
+            </LinearLayout>
+
+            <!-- Financial Goals Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Financial Goals"
+                android:textColor="#FDD835"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Track your savings goals"
+                android:textColor="#fecf69"
+                android:textSize="14sp" />
+
+            <!-- Vacation Goal -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Vacation"
+                    android:textColor="#fecf69"
+                    android:textSize="16sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarVacation"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="2"
+                    android:progress="60"
+                    android:progressTint="#FFD700"
+                    android:secondaryProgressTint="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="R5,000"
+                    android:textColor="#c1ff72"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Home Renovations Goal -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Home Renovations"
+                    android:textColor="#fecf69"
+                    android:textSize="16sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarHomeRenovations"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="2"
+                    android:progress="30"
+                    android:progressTint="#FFD700"
+                    android:secondaryProgressTint="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="R3,000"
+                    android:textColor="#c1ff72"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar (Fixed at bottom) -->
+    <LinearLayout
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#6A0080"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:id="@+id/homeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Home"
+                android:padding="8dp"
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="#fecf69"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/budgetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="Budget"
+                android:focusable="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_budget" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Budget"
+                android:textColor="#Fecf69"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/expensesButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Expenses"
+                android:padding="8dp"
+                android:src="@drawable/ic_expenses" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expenses"
+                android:textColor="#fecf69"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/educationButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Education"
+                android:padding="8dp"
+                android:src="@drawable/ic_education" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Education"
+                android:textColor="#fecf69"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
