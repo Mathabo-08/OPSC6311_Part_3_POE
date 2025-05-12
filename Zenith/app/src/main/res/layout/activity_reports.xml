@@ -390,7 +390,7 @@
             <ImageButton
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:background="#6A0080"
                 android:clickable="true"
                 android:contentDescription="Budget"
                 android:focusable="true"

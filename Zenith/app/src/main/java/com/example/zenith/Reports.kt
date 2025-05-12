@@ -3,6 +3,7 @@ package com.example.zenith
 import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class Reports : AppCompatActivity() {
@@ -19,28 +20,28 @@ class Reports : AppCompatActivity() {
 
         // Set click listeners for buttons
         homeButton.setOnClickListener {
-            val intent = Intent(this, Home::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Home::class.java))
         }
 
         budgetButton.setOnClickListener {
-            val intent = Intent(this, MonthlyBudget::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, MonthlyBudget::class.java))
         }
 
         expensesButton.setOnClickListener {
-            val intent = Intent(this, Reports::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Reports::class.java))
         }
 
         goalsButton.setOnClickListener {
-            val intent = Intent(this, Goals::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Goals::class.java))
         }
 
         educationButton.setOnClickListener {
-            val intent = Intent(this, FinancialLit::class.java)
-            startActivity(intent)
+            try {
+                startActivity(Intent(this, FinancialLit::class.java))
+            } catch (e: Exception) {
+                Toast.makeText(this, "Error opening Financial Education: ${e.message}", Toast.LENGTH_SHORT).show()
+                e.printStackTrace()
+            }
         }
     }
 }

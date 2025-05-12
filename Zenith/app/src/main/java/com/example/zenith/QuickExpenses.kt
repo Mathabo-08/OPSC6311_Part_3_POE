@@ -42,12 +42,6 @@ class QuickExpenses : AppCompatActivity() {
             navigateTo(MonthlyBudget::class.java)
         }
 
-        expensesButton.setOnClickListener {
-            // Already on QuickExpenses (which is part of Expenses flow)
-            // Just highlight the button
-            updateActiveButtonState()
-        }
-
         goalsButton.setOnClickListener {
             navigateTo(Goals::class.java)
         }
@@ -73,7 +67,6 @@ class QuickExpenses : AppCompatActivity() {
 
         findViewById<TextView>(R.id.nav_home_text).setTextColor(inactiveColor)
         findViewById<TextView>(R.id.nav_budget_text).setTextColor(inactiveColor)
-        findViewById<TextView>(R.id.nav_expenses_text).setTextColor(activeColor) // Current screen
         findViewById<TextView>(R.id.nav_goals_text).setTextColor(inactiveColor)
         findViewById<TextView>(R.id.nav_education_text).setTextColor(inactiveColor)
     }

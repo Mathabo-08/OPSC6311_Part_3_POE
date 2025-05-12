@@ -15,7 +15,7 @@ class Welcome : AppCompatActivity() {
 
         // Set click listeners for buttons
         getStartedButton.setOnClickListener {
-            val intent = Intent(this, Register::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
     }
