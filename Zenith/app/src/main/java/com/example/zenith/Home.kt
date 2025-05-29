@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class Home : AppCompatActivity() {
@@ -18,13 +19,15 @@ class Home : AppCompatActivity() {
         val viewReportsButton: LinearLayout = findViewById(R.id.viewReportsButton)
         val backButton: ImageView = findViewById(R.id.backButton)
 
+        // Initialize variables
+
+
         // Set click listeners for buttons
         addExpenseButton.setOnClickListener {
             val intent = Intent(this, QuickExpenses::class.java)
             startActivity(intent)
         }
 
-        // Must allow user to edit the Income TextView and update the Income number
         spend_sumButton.setOnClickListener {
             val intent = Intent(this, SpendingSum::class.java)
             startActivity(intent)
@@ -44,5 +47,9 @@ class Home : AppCompatActivity() {
             val intent = Intent(this, Welcome::class.java)
             startActivity(intent)
         }
+
+        // Must allow user to edit the Income TextView and update the Income number
+
+        // To get the remaining amount, the income amount must minus the expenses amount
     }
 }

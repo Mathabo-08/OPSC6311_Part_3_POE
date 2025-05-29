@@ -287,7 +287,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="Help 5 Users"
+            android:text="Save R200 for 2 Months"
             android:textColor="#424242"
             android:textSize="12sp" />
     </LinearLayout>
@@ -332,7 +332,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="Respond in 1 Min"
+            android:text="Spend less on take-away food"
             android:textColor="#424242"
             android:textSize="12sp" />
     </LinearLayout>
@@ -413,7 +413,7 @@ android:padding="16dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Share a tip on the Community Board 5 times to earn the Helpful badge."
+        android:text="Save money consistantly every month for 1 year"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 </LinearLayout>
@@ -433,7 +433,7 @@ android:padding="16dp">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    android:text="Try the 5-day eco-friendly challenge!"
+    android:text="Try saving R500 consistantly for 3 months"
     android:textColor="#FFFFFF"
     android:textSize="16sp" />
 
@@ -461,7 +461,7 @@ android:padding="16dp">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    android:text="Save water by reusing cooking liquid."
+    android:text="Spend less money on take-away food for this month!"
     android:textColor="#FFFFFF"
     android:textSize="16sp" />
 
@@ -530,29 +530,6 @@ android:paddingBottom="8dp">
         android:layout_height="wrap_content"
         android:text="Budget"
         android:textColor="#Fecf69"
-        android:textSize="12sp" />
-</LinearLayout>
-
-<LinearLayout
-    android:id="@+id/expensesButton"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:gravity="center"
-    android:orientation="vertical">
-
-    <ImageView
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="Expenses"
-        android:padding="8dp"
-        android:src="@drawable/ic_expenses" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Expenses"
-        android:textColor="#fecf69"
         android:textSize="12sp" />
 </LinearLayout>
 

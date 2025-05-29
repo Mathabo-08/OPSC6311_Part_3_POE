@@ -34,7 +34,7 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
-                    android:text="Financial Library"
+                    android:text="Financial Litracy"
                     android:textColor="#FDD835"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -344,7 +344,7 @@
                     android:background="#FDD835" />
             </LinearLayout>
 
-            <!-- Add some bottom padding to ensure content doesn't get hidden behind navigation -->
+            <!-- bottom padding to ensure content doesn't get hidden behind navigation -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="72dp" />
@@ -385,7 +385,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="#FFFFFF"
+                android:textColor="#fecf69"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -438,8 +438,8 @@
                 android:id="@+id/nav_expenses_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Expense"
-                android:textColor="#FFFFFF"
+                android:text="View Expense"
+                android:textColor="#fecf69"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -466,7 +466,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Goals"
-                android:textColor="#FFFFFF"
+                android:textColor="#fecf69"
                 android:textSize="12sp" />
         </LinearLayout>
 

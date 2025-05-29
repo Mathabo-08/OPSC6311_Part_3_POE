@@ -91,7 +91,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Total Expenses: $1,250"
+                            android:text="Total Expenses: R12,250"
                             android:textColor="#333333"
                             android:textSize="14sp" />
 
@@ -148,7 +148,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Remaining: $350"
+                            android:text="Remaining: R5,520"
                             android:textColor="#333333"
                             android:textSize="14sp" />
 
@@ -263,7 +263,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="$1,200/$2,000 saved"
+                            android:text="R1,200/R2,000 saved"
                             android:textColor="#333333"
                             android:textSize="14sp" />
 

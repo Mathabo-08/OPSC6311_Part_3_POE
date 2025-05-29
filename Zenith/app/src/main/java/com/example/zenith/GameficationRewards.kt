@@ -13,7 +13,6 @@ class GameficationRewards : AppCompatActivity() {
         // Initialize buttons
         val homeButton: LinearLayout = findViewById(R.id.homeButton)
         val budgetButton: LinearLayout = findViewById(R.id.budgetButton)
-        val expensesButton: LinearLayout = findViewById(R.id.expensesButton)
         val goalsButton: LinearLayout = findViewById(R.id.goalsButton)
         val educationButton: LinearLayout = findViewById(R.id.educationButton)
 
@@ -25,11 +24,6 @@ class GameficationRewards : AppCompatActivity() {
 
         budgetButton.setOnClickListener {
             val intent = Intent(this, MonthlyBudget::class.java)
-            startActivity(intent)
-        }
-
-        expensesButton.setOnClickListener {
-            val intent = Intent(this, Reports::class.java)
             startActivity(intent)
         }
 

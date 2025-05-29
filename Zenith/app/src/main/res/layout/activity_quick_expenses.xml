@@ -198,7 +198,7 @@
 
             <!-- Save Button -->
             <Button
-                android:id="@+id/saveButton"
+                android:id="@+id/saveExpenseButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -268,32 +268,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Budget"
-                android:textColor="#fecf69"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/expensesButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="Expenses"
-                android:src="@drawable/ic_expenses" />
-
-            <TextView
-                android:id="@+id/nav_expenses_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Expenses"
                 android:textColor="#fecf69"
                 android:textSize="12sp" />
         </LinearLayout>

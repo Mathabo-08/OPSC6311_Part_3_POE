@@ -63,3 +63,4 @@ dependencies {
 
 // Required to apply google-services.json for Firebase to initialize
 apply(plugin = "com.google.gms.google-services")
+
