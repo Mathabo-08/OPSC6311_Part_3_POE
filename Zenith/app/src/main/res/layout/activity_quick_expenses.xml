@@ -70,26 +70,28 @@
                 android:layout_marginTop="16dp"
                 android:background="#FFC107"
                 android:orientation="horizontal"
-                android:padding="12dp">
+                android:padding="12dp"
+                android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:contentDescription="Currency"
-                    android:src="@drawable/ic_currency_sign" />
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Currency"
+                android:src="@drawable/ic_currency_sign"
+                android:scaleType="centerInside" />
 
                 <EditText
-                    android:id="@+id/amountEditText"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:hint="Amount"
-                    android:inputType="numberDecimal"
-                    android:textColor="#000000"
-                    android:textColorHint="#373535"
-                    android:textSize="16sp" />
+                android:id="@+id/amountEditText"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Amount"
+                android:inputType="numberDecimal"
+                android:textColor="#000000"
+                android:textColorHint="#373535"
+                android:textSize="16sp" />
             </LinearLayout>
 
             <!-- Date Input -->
