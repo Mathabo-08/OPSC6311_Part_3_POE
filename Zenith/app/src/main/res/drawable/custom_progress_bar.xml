@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background of the progress bar (the full track) -->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="5dp" /> <!-- Rounded corners for the background track -->
+            <solid android:color="#9C27B0" /> <!-- Darker purple background color -->
+        </shape>
+    </item>
+    <!-- The actual progress fill -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="5dp" /> <!-- Rounded corners for the progress fill -->
+                <solid android:color="#FDD835" /> <!-- Yellow progress color -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>
