@@ -18,7 +18,11 @@ class Reports : AppCompatActivity() {
         val goalsButton: LinearLayout = findViewById(R.id.goalsButton)
         val educationButton: ImageView = findViewById(R.id.educationButton)
 
-        // Set click listeners for buttons
+        // Initialize the "Recent Transactions" layout.
+        // IMPORTANT: Ensure you have an ID 'recentTransactionsLayout' for this section in your activity_reports.xml
+        val recentTransactionsLayout: LinearLayout = findViewById(R.id.recentTransactionsLayout)
+
+        // Set click listeners for bottom navigation buttons
         homeButton.setOnClickListener {
             startActivity(Intent(this, Home::class.java))
         }
@@ -32,7 +36,15 @@ class Reports : AppCompatActivity() {
         }
 
         educationButton.setOnClickListener {
-                startActivity(Intent(this, FinancialLit::class.java))
+            startActivity(Intent(this, FinancialLit::class.java))
+        }
+
+        // Set click listener for the "Recent Transactions" section
+        recentTransactionsLayout.setOnClickListener {
+            // This intent will start the TransactionHistoryActivity when the layout is clicked
+            startActivity(Intent(this, TransactionHistory::class.java))
+            // Optional: Add a short toast message to confirm navigation
+            Toast.makeText(this, "Opening Transaction History", Toast.LENGTH_SHORT).show()
         }
     }
 }

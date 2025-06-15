@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Card 1 -->
+            <!-- Card 1: Monthly Summary -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,9 +113,9 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/ic_expense_chart" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView> 
+            </androidx.cardview.widget.CardView>
 
-            <!-- Card 2 -->
+            <!-- Card 2: Budget Overview -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -172,8 +172,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card 3 -->
+            <!-- Card 3: Recent Transactions - ADDED ID HERE -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/recentTransactionsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -229,7 +230,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card 4 -->
+            <!-- Card 4: Savings Goals -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -287,7 +288,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card 5 -->
+            <!-- Card 5: Financial Tips -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
