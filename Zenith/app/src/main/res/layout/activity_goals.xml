@@ -116,6 +116,120 @@
                     app:iconTint="#FFFFFF" />
             </LinearLayout>
 
+            <!-- New Section for Total Income Input -->
+            <LinearLayout
+                android:id="@+id/incomeInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:padding="8dp"
+                android:background="#6A0080">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Total Income:"
+                    android:textColor="#FDD835"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/editTextTotalIncome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:hint="R 20,000.00"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#CCCCCC"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"
+                    android:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/buttonSaveIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="12dp"
+                    android:text="Save Income"
+                    android:textColor="#c1ff72"
+                    android:backgroundTint="#A020F0"
+                    app:cornerRadius="8dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"/>
+            </LinearLayout>
+
+            <!-- New Section for Total Expenses Input (Added) -->
+            <LinearLayout
+                android:id="@+id/expensesInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:padding="8dp"
+                android:background="#6A0080">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Total Expenses:"
+                    android:textColor="#FDD835"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/editTextTotalExpenses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:hint="R 12,461.50"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#CCCCCC"
+                    android:backgroundTint="#CCCCCC"
+                    android:padding="10dp"
+                    android:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/buttonSaveExpenses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="12dp"
+                    android:text="Save Expenses"
+                    android:textColor="#ff3131"
+                    android:backgroundTint="#A020F0"
+                    app:cornerRadius="8dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"/>
+            </LinearLayout>
+
+            <!-- Display for Total Income (New Addition) -->
+            <TextView
+                android:id="@+id/textViewTotalIncomeDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Current Income: R0.00"
+                android:textColor="#c1ff72"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <!-- Display for Total Expenses (New Addition) -->
+            <TextView
+                android:id="@+id/textViewTotalExpensesDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Current Expenses: R0.00"
+                android:textColor="#ff3131"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
             <!-- Category Allocation Header -->
             <TextView
                 android:layout_width="wrap_content"
