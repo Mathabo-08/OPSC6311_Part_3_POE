@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDD835"
+    tools:context=".DebitCardActivity">
+
+  <LinearLayout
+      android:id="@+id/headerLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Back Button"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_arrow_back" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Difference between debit card and credit card"
+        android:textAlignment="center"
+        android:textColor="#6A0080"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+  </LinearLayout>
+
+  <ScrollView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp" >
+
+      <ImageView
+          android:id="@+id/imageView"
+          android:layout_width="256dp"
+          android:layout_height="231dp"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="16dp"
+          android:src="@drawable/card_image_3"
+          android:contentDescription="Budget Illustration" />
+
+      <TextView
+          android:id="@+id/textView_debit_card_explaination"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="24dp"
+          android:text="A debit card is directly linked to your bank account, like your checking or savings account. When you use a debit card, the money for your purchase is immediately deducted from your available balance. You are essentially spending your own money that you already have in your account. If you don't have enough funds, the transaction will be declined (unless you have an overdraft facility, which is a type of credit linked to your debit card and incurs interest)."
+          android:textColor="#000000"
+          android:textSize="18sp" />
+
+      <TextView
+          android:id="@+id/textView_credt_card_explaination"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="24dp"
+          android:text="A credit card, on the other hand, allows you to borrow money from the card issuer (usually a bank) up to a pre-approved limit. When you use a credit card, you're not spending your own money; you're using the bank's money. You then receive a monthly statement outlining your purchases, and you're obligated to pay back the borrowed amount, either in full or with a minimum payment plus interest if you carry a balance."
+          android:textColor="#000000"
+          android:textSize="18sp" />
+
+      <TextView
+          android:id="@+id/textView_example_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:text="Example"
+          android:textAlignment="center"
+          android:textColor="#6A0080"
+          android:textSize="20sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/textView_debit_card_example"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="24dp"
+          android:text="Example of a Debit Card: Imagine you have R500 in your bank account. You use your Capitec Debit Card to buy groceries for R300. The R300 is immediately taken out of your account, leaving you with R200. You can't spend more than the R500 you have unless your bank allows an overdraft."
+          android:textColor="#090909"
+          android:textSize="18sp" />
+
+      <TextView
+          android:id="@+id/textView_credit_card_example"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="24dp"
+          android:text="Example of a Credit Card: You have an Absa Credit Card with a R10,000 credit limit. You use it to buy a new television for R7,000. The R7,000 is added to your credit card balance. You don't pay for it immediately from your bank account. At the end of the month, you'll get a statement showing you owe R7,000. If you pay the full R7,000 by the due date, you won't pay interest. If you only pay a minimum amount, say R500, the remaining R6,500 will accrue interest until you pay it off."
+          android:textColor="#090909"
+          android:textSize="18sp" />
+    </LinearLayout>
+  </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

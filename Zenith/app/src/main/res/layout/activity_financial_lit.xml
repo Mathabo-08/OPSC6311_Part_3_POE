@@ -135,6 +135,7 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardBudget"
                         android:layout_width="160dp"
                         android:layout_height="wrap_content"
                         app:cardBackgroundColor="#9C27B0"
@@ -179,6 +180,7 @@
                         android:layout_height="wrap_content" />
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardCreditScore"
                         android:layout_width="160dp"
                         android:layout_height="wrap_content"
                         app:cardBackgroundColor="#9C27B0"
@@ -223,6 +225,7 @@
                         android:layout_height="wrap_content" />
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardDebitCard"
                         android:layout_width="160dp"
                         android:layout_height="wrap_content"
                         app:cardBackgroundColor="#9C27B0"
