@@ -379,12 +379,12 @@
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Housing"
+                    android:text="Entertainment"
                     android:textColor="#c1ff72"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/switchHousingAlert"
+                    android:id="@+id/switchEntAlert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="64dp"

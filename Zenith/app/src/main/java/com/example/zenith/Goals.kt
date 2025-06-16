@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat // Import for SwitchCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -32,6 +33,10 @@ class Goals : AppCompatActivity() {
     private lateinit var editTextTotalExpenses: EditText
     private lateinit var buttonSaveExpenses: Button
     private lateinit var textViewTotalExpensesDisplay: TextView // TextView to display current expenses
+
+    // Declare UI elements for Switches
+    private lateinit var switchFoodAlert: SwitchCompat // Declare for Food alert switch
+    private lateinit var switchEntAlert: SwitchCompat // Declare for Entertainment alert switch
 
     // Firebase instances
     private lateinit var mAuth: FirebaseAuth
@@ -79,6 +84,11 @@ class Goals : AppCompatActivity() {
         buttonSaveExpenses = findViewById(R.id.buttonSaveExpenses)
         textViewTotalExpensesDisplay = findViewById(R.id.textViewTotalExpensesDisplay)
 
+        // Initialize Switch UI elements
+        switchFoodAlert = findViewById(R.id.switchFoodAlert)
+        switchEntAlert = findViewById(R.id.switchEntAlert) // Initialize the Entertainment switch
+
+
         // Set click listeners for bottom navigation buttons
         homeButton.setOnClickListener {
             val intent = Intent(this, Home::class.java)
@@ -119,6 +129,27 @@ class Goals : AppCompatActivity() {
         buttonSaveExpenses.setOnClickListener {
             saveTotalExpensesToFirebase()
         }
+
+        // Set OnCheckedChangeListener for the 'Food' alert switch
+        switchFoodAlert.setOnCheckedChangeListener { _, isChecked ->
+            // You can also save the state to Firebase here if needed
+            if (isChecked) {
+                Toast.makeText(this, "Food alert successfully set!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Food alert successfully unset!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Set OnCheckedChangeListener for the 'Entertainment' alert switch
+        switchEntAlert.setOnCheckedChangeListener { _, isChecked ->
+            // You can also save the state to Firebase here if needed
+            if (isChecked) {
+                Toast.makeText(this, "Entertainment alert successfully set!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Entertainment alert successfully unset!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
         // Initially ensure both income and expenses input layouts are hidden
         // This is a good practice even if `android:visibility="gone"` is in XML.
@@ -296,7 +327,7 @@ class Goals : AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {
                 // Log and show an error if data loading fails
                 Toast.makeText(this@Goals, "Failed to load expenses: ${error.message}", Toast.LENGTH_LONG).show()
-                textViewTotalExpensesDisplay.text = "Current Expenses: Error" // Indicate error on UI
+                textViewTotalExpensesDisplay.text = "Current Expenses: R0.00" // Indicate error on UI
             }
         })
     }
