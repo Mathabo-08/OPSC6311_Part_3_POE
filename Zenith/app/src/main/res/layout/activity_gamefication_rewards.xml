@@ -266,11 +266,12 @@
         android:padding="16dp">
 
         <ImageView
+            android:id="@+id/ic_set_goal"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:contentDescription="Set Goals"
             android:scaleType="fitCenter"
-            android:src="@drawable/set_goals" />
+            android:src="@drawable/ic_set_goal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -311,11 +312,12 @@
         android:padding="16dp">
 
         <ImageView
+            android:id="@+id/ic_saved_mon"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:contentDescription="Money Saved"
             android:scaleType="fitCenter"
-            android:src="@drawable/money_saved" />
+            android:src="@drawable/ic_saved_mon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -332,7 +334,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="Spend less on take-away food"
+            android:text="Spend less on take-away"
             android:textColor="#424242"
             android:textSize="12sp" />
     </LinearLayout>

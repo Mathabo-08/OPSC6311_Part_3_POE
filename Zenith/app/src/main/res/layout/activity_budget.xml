@@ -52,12 +52,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="16dp" > <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ic_credit_score_"
             android:layout_width="256dp"
             android:layout_height="231dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:src="@drawable/card_image_1"
+            android:src="@drawable/icon_budget_fin"
             android:contentDescription="Budget Illustration" />
 
             <TextView

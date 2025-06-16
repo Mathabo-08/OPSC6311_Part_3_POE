@@ -150,11 +150,12 @@
                             android:padding="12dp">
 
                             <ImageView
+                                android:id="@+id/ic_credit_score_"
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:contentDescription="Budget Image"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/card_image_1" />
+                                android:src="@drawable/icon_budget_fin" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -195,11 +196,12 @@
                             android:padding="12dp">
 
                             <ImageView
+                                android:id="@+id/ic_credit_score_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:contentDescription="Credit Score Image"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/card_image_2" />
+                                android:src="@drawable/ic_credit_score" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -240,11 +242,12 @@
                             android:padding="12dp">
 
                             <ImageView
+                                android:id="@+id/ic_debit_credit"
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:contentDescription="Debit Card Image"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/card_image_3" />
+                                android:src="@drawable/ic_debit_credit" />
 
                             <TextView
                                 android:layout_width="match_parent"

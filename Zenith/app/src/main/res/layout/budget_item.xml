@@ -11,50 +11,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical">
 
-        <!-- Category Title (e.g., "Groceries") -->
-        <TextView
-            android:id="@+id/categoryTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Category Name"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+    <!-- Container for Text Views -->
+    <LinearLayout
+        android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical">
 
-        <!-- Allocated Amount -->
-        <TextView
-            android:id="@+id/allocatedAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Allocated : R0.00"
-            android:textColor="#000000"
-            android:textSize="16sp" />
+    <!-- Category Title (e.g., "Groceries") -->
+    <TextView
+        android:id="@+id/categoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category Name"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        <!-- Spent Amount -->
-        <TextView
-            android:id="@+id/spentAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Spent : R0.00"
-            android:textColor="#000000"
-            android:textSize="16sp" />
+    <!-- Allocated Amount -->
+    <TextView
+        android:id="@+id/allocatedAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Allocated : R0.00"
+        android:textColor="#000000"
+        android:textSize="16sp" />
 
-        <!-- Overspent Warning Message -->
-        <TextView
-            android:id="@+id/overspentWarning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="OVERSPENT BY R0.00!"
-            android:textColor="#FF0000"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:visibility="gone" /> <!-- Initially hidden, becomes visible if overspent -->
+    <!-- Spent Amount -->
+    <TextView
+        android:id="@+id/spentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spent : R0.00"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <!-- Overspent Warning Message -->
+    <TextView
+        android:id="@+id/overspentWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="OVERSPENT BY R0.00!"
+        android:textColor="#FF0000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:visibility="gone" /> <!-- Initially hidden, becomes visible if overspent -->
+
+</LinearLayout>
+
+    <!-- Image View - Placeholder -->
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
