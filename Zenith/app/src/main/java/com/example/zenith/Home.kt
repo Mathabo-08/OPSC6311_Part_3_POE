@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class Home : AppCompatActivity() {
@@ -14,7 +13,7 @@ class Home : AppCompatActivity() {
 
         // Initialize buttons
         val addExpenseButton: LinearLayout = findViewById(R.id.addExpenseButton)
-        val spend_sumButton: LinearLayout = findViewById(R.id.spend_sumButton)
+        val savingsButton: LinearLayout = findViewById(R.id.savingsButton)
         val rewardsButton: LinearLayout = findViewById(R.id.rewardsButton)
         val viewReportsButton: LinearLayout = findViewById(R.id.viewReportsButton)
         val backButton: ImageView = findViewById(R.id.backButton)
@@ -28,8 +27,8 @@ class Home : AppCompatActivity() {
             startActivity(intent)
         }
 
-        spend_sumButton.setOnClickListener {
-            val intent = Intent(this, SpendingSum::class.java)
+        savingsButton.setOnClickListener {
+            val intent = Intent(this, Savings::class.java)
             startActivity(intent)
         }
 

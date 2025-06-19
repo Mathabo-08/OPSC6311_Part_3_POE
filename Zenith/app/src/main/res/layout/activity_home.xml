@@ -400,7 +400,7 @@
 
         <!-- Spending Summary -->
         <LinearLayout
-            android:id="@+id/spend_sumButton"
+            android:id="@+id/savingsButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
