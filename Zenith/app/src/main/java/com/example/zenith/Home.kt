@@ -19,7 +19,7 @@ class Home : AppCompatActivity() {
         val viewReportsButton: LinearLayout = findViewById(R.id.viewReportsButton)
         val backButton: ImageView = findViewById(R.id.backButton)
 
-        // Initialize variables
+        // Initialize variable
 
 
         // Set click listeners for buttons

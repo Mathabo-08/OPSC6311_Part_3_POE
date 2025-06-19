@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#582B7B"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="Set Savings Goal"
+        android:textColor="#FDD835"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <!-- Set savings Form -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#6A0080"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/sav_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Title"
+            android:textAlignment="textStart"
+            android:textColor="#FDD835"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/sav_editTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#582B7B"
+            android:layout_marginTop="5dp"
+            android:hint="Enter saving Title"
+            android:inputType="text"
+            android:textSize="18sp"
+            android:textColor="#00000000"
+            android:textColorHint="#FDD835" />
+
+        <TextView
+            android:id="@+id/sav_monAmou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Monthly Amount"
+            android:textAlignment="textStart"
+            android:textColor="#FDD835"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#582B7B"
+            android:hint="Enter mothly allocation amount"
+            android:inputType="numberDecimal"
+            android:textColor="#00000000"
+            android:textSize="18sp"
+            android:textColorHint="#FDD835" />
+
+        <TextView
+            android:id="@+id/sav_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Duration"
+            android:textAlignment="textStart"
+            android:textColor="#FDD835"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#582B7B"
+            android:hint="Enter savings duration"
+            android:inputType="numberDecimal"
+            android:textColor="#00000000"
+            android:textSize="18sp"
+            android:textColorHint="#FDD835" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/updateBudButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Set"
+        android:textColor="#FECF69" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Back"
+        android:textColor="#FECF69" />
+</LinearLayout>

@@ -47,15 +47,6 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/notifButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="Notifications"
-                    android:padding="8dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_notifications" />
-
-                <ImageView
                     android:id="@+id/profileButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"

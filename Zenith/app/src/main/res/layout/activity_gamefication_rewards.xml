@@ -39,17 +39,6 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/notifButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:contentDescription="Notification"
-        android:focusable="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_notifications" />
-
     <ImageView
         android:id="@+id/profileImage"
         android:layout_width="48dp"
