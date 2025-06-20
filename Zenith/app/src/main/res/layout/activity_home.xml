@@ -50,9 +50,9 @@
                     android:id="@+id/profileButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:contentDescription="Profile"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/profile_placeholder" />
+                android:contentDescription="Profile"
+                android:scaleType="fitCenter"
+                android:src="@drawable/profile_placeholder" />
             </LinearLayout>
 
             <!-- Search Bar -->
@@ -77,13 +77,13 @@
 
                 <EditText
                     android:id="@+id/searchEditText"
-                    android:layout_width="48dp"
+                    android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="center_vertical"
-                    android:hint="Search your finances..."
+                    android:hint="Search your savings..."
                     android:inputType="text"
                     android:textColor="#FFFFFF"
                     android:textColorHint="#F0F0F0"
@@ -262,13 +262,13 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/incomeAmount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="R 25,000"
-                        android:textColor="#00bf63"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:id="@+id/textViewHomeTotalIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R 25,000"
+                    android:textColor="#00bf63"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
                 </LinearLayout>
 
                 <!-- Expenses Section -->
@@ -289,7 +289,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/expensesAmount"
+                        android:id="@+id/textViewHomeTotalExpenses"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="R 15,000"
@@ -410,14 +410,14 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:contentDescription="Spending"
+                android:contentDescription="Savings"
                 android:src="@drawable/ic_edit_income" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Spending"
+                android:text="Savings"
                 android:textColor="#FFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
