@@ -90,132 +90,27 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <!-- Budget Progress Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:orientation="vertical">
 
-                <!-- Housing Progress -->
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#6A0080"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="8dp">
+                    android:text="Your Savings Goals"
+                    android:textColor="#FECF69"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="8dp"/>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#9C27B0"
-                        android:text="Housing"
-                        android:textColor="#FECF69"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <ProgressBar
-                        android:id="@+id/housingProgressBar"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="150dp"
-                        android:layout_height="8dp"
-                        android:layout_marginStart="8dp"
-                        android:background="#FFC107"
-                        android:progress="75"
-                        android:scaleY="1.5" />
-                </LinearLayout>
-
-                <!-- Transportation Progress -->
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/savingsGoalsRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#6A0080"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="8dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#9C27B0"
-                        android:text="Transportation"
-                        android:textColor="#FECF69"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <ProgressBar
-                        android:id="@+id/transportProgressBar"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="150dp"
-                        android:layout_height="8dp"
-                        android:layout_marginStart="8dp"
-                        android:background="#009688"
-                        android:progress="50"
-                        android:scaleY="1.5" />
-                </LinearLayout>
-
-                <!-- Food Progress -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#6A0080"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="8dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#9C27B0"
-                        android:text="Food"
-                        android:textColor="#FECF69"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <ProgressBar
-                        android:id="@+id/foodProgressBar"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="150dp"
-                        android:layout_height="8dp"
-                        android:layout_marginStart="8dp"
-                        android:background="#890606"
-                        android:progress="90"
-                        android:scaleY="1.5" />
-                </LinearLayout>
-
-                <!-- Utilities Progress -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#6A0080"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="8dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#9C27B0"
-                        android:text="Utilities"
-                        android:textColor="#FECF69"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <ProgressBar
-                        android:id="@+id/utilitiesProgressBar"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="150dp"
-                        android:layout_height="8dp"
-                        android:layout_marginStart="8dp"
-                        android:background="#3F51B5"
-                        android:progress="30"
-                        android:scaleY="1.5" />
-                </LinearLayout>
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_savings_goal"/>
             </LinearLayout>
 
             <!-- App Logo -->

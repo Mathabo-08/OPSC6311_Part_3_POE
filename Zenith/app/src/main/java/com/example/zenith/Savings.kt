@@ -5,6 +5,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth // Import FirebaseAuth
+import com.google.firebase.auth.FirebaseUser // Import FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -19,15 +21,28 @@ class Savings : AppCompatActivity() {
 
     // Declare Firebase Database reference
     private lateinit var database: DatabaseReference
+    private lateinit var mAuth: FirebaseAuth // Declare FirebaseAuth
+    private var currentUserId: String? = null // To store the current user's UID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_savings)
 
-        // Initialize Firebase Database
-        // Replace "your_project_id" with your actual Firebase project ID if needed,
-        // though typically Firebase handles this automatically with google-services.json
-        database = FirebaseDatabase.getInstance().getReference("SavingsGoals")
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance()
+        val currentUser: FirebaseUser? = mAuth.currentUser
+
+        if (currentUser != null) {
+            currentUserId = currentUser.uid
+            // Initialize Firebase Database to save under the current user's node
+            // Path: users -> {currentUserId} -> SavingsGoals
+            database = FirebaseDatabase.getInstance().getReference("users").child(currentUserId!!).child("SavingsGoals")
+        } else {
+            // Handle the case where the user is not logged in.
+            Toast.makeText(this, "User not logged in. Cannot set savings goal.", Toast.LENGTH_LONG).show()
+            finish() // Close this activity if no user is authenticated
+            return
+        }
 
         // Initialize your views from the XML layout
         editTitle = findViewById(R.id.sav_editTitle)

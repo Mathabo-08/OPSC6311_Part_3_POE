@@ -4,27 +4,34 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView // Import TextView
-import android.widget.Toast // Import Toast for error messages
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth // Import FirebaseAuth
-import com.google.firebase.auth.FirebaseUser // Import FirebaseUser
-import com.google.firebase.database.DataSnapshot // Import DataSnapshot
-import com.google.firebase.database.DatabaseError // Import DatabaseError
-import com.google.firebase.database.DatabaseReference // Import DatabaseReference
-import com.google.firebase.database.FirebaseDatabase // Import FirebaseDatabase
-import com.google.firebase.database.ValueEventListener // Import ValueEventListener
+import androidx.recyclerview.widget.LinearLayoutManager // Import for RecyclerView layout manager
+import androidx.recyclerview.widget.RecyclerView // Import for RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class Home : AppCompatActivity() {
 
     // Declare UI elements
-    private lateinit var textViewHomeTotalIncome: TextView // TextView to display total income on Home screen
-    private lateinit var textViewHomeTotalExpenses: TextView // TextView to display total expenses on Home screen
-    private lateinit var textViewHomeRemainingBalance: TextView // TextView to display remaining balance on Home screen
+    private lateinit var textViewHomeTotalIncome: TextView
+    private lateinit var textViewHomeTotalExpenses: TextView
+    private lateinit var textViewHomeRemainingBalance: TextView
+
+    private lateinit var savingsGoalsRecyclerView: RecyclerView // Declare RecyclerView
+    private lateinit var savingsGoalsAdapter: SavingsGoalsAdapter // Declare Adapter
+    private val savingsGoalsList = mutableListOf<SavingsGoal>() // List to hold savings goals
 
     // Firebase instances
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDatabase: DatabaseReference
+    private lateinit var savingsGoalsDatabase: DatabaseReference // New database reference for savings goals
     private var currentUserId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +47,9 @@ class Home : AppCompatActivity() {
             // Get a reference to the specific user's data in Firebase Realtime Database
             // Path: users -> {currentUserId}
             mDatabase = FirebaseDatabase.getInstance().getReference("users").child(currentUserId!!)
+            // New reference for user-specific savings goals
+            // Path: users -> {currentUserId} -> SavingsGoals
+            savingsGoalsDatabase = mDatabase.child("SavingsGoals")
         } else {
             // Handle the case where the user is not logged in.
             Toast.makeText(this, "User not logged in. Please log in to view your dashboard.", Toast.LENGTH_LONG).show()
@@ -58,6 +68,12 @@ class Home : AppCompatActivity() {
         textViewHomeTotalIncome = findViewById(R.id.textViewHomeTotalIncome)
         textViewHomeTotalExpenses = findViewById(R.id.textViewHomeTotalExpenses)
         textViewHomeRemainingBalance = findViewById(R.id.remainingAmount)
+
+        // Initialize RecyclerView for savings goals
+        savingsGoalsRecyclerView = findViewById(R.id.savingsGoalsRecyclerView)
+        savingsGoalsRecyclerView.layoutManager = LinearLayoutManager(this)
+        savingsGoalsAdapter = SavingsGoalsAdapter(savingsGoalsList)
+        savingsGoalsRecyclerView.adapter = savingsGoalsAdapter
 
 
         // Set click listeners for buttons
@@ -87,8 +103,9 @@ class Home : AppCompatActivity() {
         }
 
         // Load and update all financial data (income, expenses, remaining balance) from Firebase
-        // This single listener will handle updates for all three values.
         loadFinancialDataForHome()
+        // Load and display savings goals from Firebase
+        loadSavingsGoals()
     }
 
     /**
@@ -125,6 +142,34 @@ class Home : AppCompatActivity() {
                 textViewHomeTotalIncome.text = "Error"
                 textViewHomeTotalExpenses.text = "Error"
                 textViewHomeRemainingBalance.text = "Error"
+            }
+        })
+    }
+
+    /**
+     * Loads savings goals for the current user from Firebase Realtime Database.
+     */
+    private fun loadSavingsGoals() {
+        // We are now listening to the user's specific SavingsGoals node
+        savingsGoalsDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                savingsGoalsList.clear() // Clear existing data to avoid duplicates
+                if (snapshot.exists()) {
+                    for (goalSnapshot in snapshot.children) {
+                        val savingsGoal = goalSnapshot.getValue(SavingsGoal::class.java)
+                        if (savingsGoal != null) {
+                            savingsGoalsList.add(savingsGoal)
+                        }
+                    }
+                } else {
+                    // Optional: Show a message if no savings goals are found
+                    // Toast.makeText(this@Home, "No savings goals found.", Toast.LENGTH_SHORT).show()
+                }
+                savingsGoalsAdapter.notifyDataSetChanged() // Notify adapter that data has changed
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@Home, "Failed to load savings goals: ${error.message}", Toast.LENGTH_LONG).show()
             }
         })
     }
