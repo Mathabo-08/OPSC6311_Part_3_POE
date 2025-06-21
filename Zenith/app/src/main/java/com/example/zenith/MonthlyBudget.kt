@@ -30,10 +30,8 @@ class MonthlyBudget : AppCompatActivity() {
 
     // UI elements for the overall budget summary (from activity_monthly_budget.xml)
     private lateinit var totalAllocatedAmountTextView: TextView
-    private lateinit var totalSpentAmountTextView: TextView
-    private lateinit var totalRemainingAmountTextView: TextView
-    private lateinit var budgetProgressBar: ProgressBar
-    private lateinit var overallOverspentWarningTextView: TextView
+    // REMOVED: totalSpentAmountTextView, totalRemainingAmountTextView, budgetProgressBar
+    private lateinit var overallOverspentWarningTextView: TextView // Keeping this for the bottom warning
 
     // RecyclerView and its Adapter for displaying the list of budget categories
     private lateinit var budgetsRecyclerView: RecyclerView
@@ -52,9 +50,7 @@ class MonthlyBudget : AppCompatActivity() {
         // --- Initialize UI elements from activity_monthly_budget.xml ---
         // Overall Budget Summary TextViews and ProgressBar
         totalAllocatedAmountTextView = findViewById(R.id.totalAllocatedAmount)
-        totalSpentAmountTextView = findViewById(R.id.totalSpentAmount)
-        totalRemainingAmountTextView = findViewById(R.id.totalRemainingAmount)
-        budgetProgressBar = findViewById(R.id.budgetProgressBar)
+        // REMOVED: findViewById(R.id.totalSpentAmount), findViewById(R.id.totalRemainingAmount), findViewById(R.id.budgetProgressBar)
         overallOverspentWarningTextView = findViewById(R.id.overallOverspentWarning)
 
         // RecyclerView setup
@@ -158,7 +154,7 @@ class MonthlyBudget : AppCompatActivity() {
                 if (snapshots != null && !snapshots.isEmpty) {
                     val newBudgetList = mutableListOf<BudgetItem>()
                     var totalAllocated = 0.0
-                    var totalSpent = 0.0
+                    var totalSpent = 0.0 // Still calculate totalSpent to potentially use for the warning at the bottom
 
                     // Iterate through each document received in the snapshot
                     for (doc in snapshots.documents) {
@@ -169,12 +165,13 @@ class MonthlyBudget : AppCompatActivity() {
                         if (budgetItem != null) {
                             newBudgetList.add(budgetItem)
                             totalAllocated += budgetItem.allocatedAmount
-                            totalSpent += budgetItem.spentAmount
+                            totalSpent += budgetItem.spentAmount // Still sum spent for overall warning
                         }
                     }
                     // Update the RecyclerView with the new list of budgets
                     budgetAdapter.updateList(newBudgetList)
                     // Update the overall budget summary at the top of the screen
+                    // Now we pass both allocated and spent, but the function will only use allocated for the header
                     updateOverallBudgetSummary(totalAllocated, totalSpent)
                 } else {
                     // No budget data found for the user (collection is empty or doesn't exist)
@@ -186,27 +183,16 @@ class MonthlyBudget : AppCompatActivity() {
     }
 
     /**
-     * Updates the TextViews for total allocated, total spent, total remaining,
-     * the ProgressBar, and the overall overspent warning on the main screen.
+     * Updates the TextView for total allocated amount.
+     * It also manages the overall overspent warning, even though the spent/remaining aren't in the header.
      */
     private fun updateOverallBudgetSummary(totalAllocated: Double, totalSpent: Double) {
+        // Only display the total allocated amount in the header
         totalAllocatedAmountTextView.text = "R ${String.format("%.2f", totalAllocated)}"
-        totalSpentAmountTextView.text = "R ${String.format("%.2f", totalSpent)}"
 
-        val remaining = totalAllocated - totalSpent
-        totalRemainingAmountTextView.text = "R ${String.format("%.2f", remaining)}"
+        // REMOVED: totalSpentAmountTextView.text, totalRemainingAmountTextView.text, and budgetProgressBar logic from here.
 
-        // Calculate and set progress for the ProgressBar
-        if (totalAllocated > 0) {
-            val progress = ((totalSpent / totalAllocated) * 100).toInt()
-            // Ensure progress is within the valid range [0, 100]
-            budgetProgressBar.progress = progress.coerceIn(0, 100)
-        } else {
-            // If total allocated is zero, progress should also be zero
-            budgetProgressBar.progress = 0
-        }
-
-        // Show or hide the overall overspent warning message
+        // Show or hide the overall overspent warning message (still useful at the bottom)
         // It's shown if total spent exceeds total allocated AND total allocated is greater than 0
         if (totalSpent > totalAllocated && totalAllocated > 0) {
             val overspentAmount = totalSpent - totalAllocated
@@ -360,52 +346,6 @@ class MonthlyBudget : AppCompatActivity() {
             return
         }
 
-        // Get the document reference for the specific budget category
-        val budgetDocRef = db.collection("users").document(userId!!).collection("budgets").document(category)
-
-        // Use a Firestore transaction to ensure the 'spentAmount' update is atomic.
-        // This prevents race conditions if multiple expenses are added simultaneously.
-        db.runTransaction { transaction ->
-            val snapshot = transaction.get(budgetDocRef)
-            // Get the current 'spentAmount', defaulting to 0.0 if not found
-            val currentSpent = snapshot.getDouble("spentAmount") ?: 0.0
-            val newSpent = currentSpent + amount // Calculate the new total spent amount
-            // Update the 'spentAmount' field in the document
-            transaction.update(budgetDocRef, "spentAmount", newSpent)
-            // No need to return anything for a successful transaction here
-        }.addOnSuccessListener {
-            Log.d("MonthlyBudget", "Expense added to '$category'. New spent amount: ${String.format("%.2f", amount)}")
-            Toast.makeText(this, "Expense added to $category.", Toast.LENGTH_SHORT).show()
-            // The addSnapshotListener will automatically observe this change and update the UI
-        }.addOnFailureListener { e ->
-            // Handle transaction failure (e.g., network issues, document not found)
-            Log.w("MonthlyBudget", "Transaction failed for adding expense: ", e)
-            Toast.makeText(this, "Failed to add expense: ${e.message}", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    /**
-     * Called when the activity is no longer visible to the user.
-     * It's crucial to remove the Firestore listener here to prevent memory leaks
-     * and unnecessary data usage/billing.
-     */
-    override fun onStop() {
-        super.onStop()
-        budgetListener?.remove() // Detach the real-time listener
-        Log.d("MonthlyBudget", "Firestore listener removed in onStop.")
-    }
-
-    /**
-     * Called when the activity is about to become visible again after being stopped.
-     * We re-attach the Firestore listener here to resume real-time updates.
-     */
-    override fun onResume() {
-        super.onResume()
-        // Re-attach the listener only if the userId is already available
-        // and if a listener is not already active (budgetListener is null).
-        if (userId != null && budgetListener == null) {
-            startListeningForBudgets()
-            Log.d("MonthlyBudget", "Firestore listener re-attached in onResume.")
-        }
+        // Get the document reference
     }
 }

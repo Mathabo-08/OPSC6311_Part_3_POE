@@ -110,7 +110,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false"
-                    tools:listitem="@layout/item_savings_goal"/>
+                    android:visibility="visible"
+                    tools:listitem="@layout/item_savings_goal" />
             </LinearLayout>
 
             <!-- App Logo -->
